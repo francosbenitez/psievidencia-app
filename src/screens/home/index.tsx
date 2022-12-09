@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Text, View, Button, StyleSheet } from "react-native";
-import instance from "../services/Api";
+import instance from "../../services/Api";
+import { Container, Title } from "./styles";
 
 const Home = ({ navigation }) => {
   const [psychologists, setPsychologists] = useState([]);
 
   useEffect(() => {
     const getPsychologists = async () => {
-      const response = await instance.get("/api/psychologists");
-      console.log("response", response);
+      // const response = await instance.get("/api/psychologists");
+      // console.log("response", response);
+      console.log("getPsychologists was just run!");
     };
     getPsychologists();
   }, []);
@@ -17,7 +19,9 @@ const Home = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Psievidencia</Text>
       <View style={styles.card}>
-        <Text>Franco Sebastián Benítez22</Text>
+        <Container>
+          <Title>Franco Sebastián Benítez22</Title>
+        </Container>
         <Button
           title="Ver detalle"
           onPress={() => navigation.navigate("PsychologistsDetail")}
